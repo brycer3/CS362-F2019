@@ -1,0 +1,13 @@
+CFLAGS= -Wall -fpic -coverage -lm -std=c99
+
+testme: testme.c
+	gcc -o testme testme.c $(CFLAGS)
+    
+runtests: testme
+	./testme -i
+	gcov testme.c -f -b
+
+all: testme runtests
+
+clean:
+	rm -f *.o testme.exe testme *.gcov *.gcda *.gcno *.so *.out
