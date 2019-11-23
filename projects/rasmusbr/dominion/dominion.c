@@ -1141,13 +1141,14 @@ int cardBaron(int choice1, struct gameState *state, int currentPlayer) {
                 }
                 state->hand[currentPlayer][state->handCount[currentPlayer]] = -1;
                 state->handCount[currentPlayer]--;
+                return 0;
             }
             else if (p > state->handCount[currentPlayer]) {
                 if(DEBUG) {
                     printf("No estate cards in your hand, invalid choice\n");
                     printf("Must gain an estate if there are any\n");
-                    break;
                 }
+                break;
             }
             else {
                 p++;//Next card
